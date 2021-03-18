@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# (c) Copyright Ryan Gordon. 2010, 2021. All Rights Reserved. MIT
+# (c) Copyright Ryan Gordon. 2021. All Rights Reserved. MIT
 
 """ setup.py for cp4s-connector-sdk Python Module """
 
