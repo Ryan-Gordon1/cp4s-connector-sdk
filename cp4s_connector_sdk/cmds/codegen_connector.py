@@ -43,4 +43,31 @@ class ConnectorCodegenCmd(BaseCmd):
                                  default=DEFAULT_CONNECTOR,
                                  help="(optional) What type of connector you want to generate (CAR, UDI); defaults to CAR")
 
-    
+    def execute_command(self, args):
+        LOG.debug("called: ConnectorCodegenCmd.execute_command()")
+        LOG.info(args)
+        if args.package:
+            SDKException.command_ran = "{0} {1}".format(
+                self.CMD_NAME, "--package | -p")
+            LOG.info("%s %s" %
+                     ("Generating a package of type", DEFAULT_CONNECTOR))
+
+            ###
+            # Perform checks
+            ###
+
+            ###
+            # Gather data needed for generation
+            ###
+
+
+            ###
+            # Generate a connector package using jinja
+            ###
+
+            ###
+            # Report the files that were and were not built
+            ###
+            
+        else:
+            self.parser.print_help()
