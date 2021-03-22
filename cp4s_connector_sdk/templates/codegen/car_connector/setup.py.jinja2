@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from setuptools import setup, find_packages
+import glob
+import ntpath
+
+
+def get_module_name(module_path):
+    """
+    Return the module name of the module path
+    """
+    return ntpath.split(module_path)[1].split(".")[0]
+
+
+def snake_to_camel(word):
+    """
+    Convert a word from snake_case to CamelCase
+    """
+    return ''.join(x.capitalize() or '_' for x in word.split('_'))
+
+
+setup(
+    name="{{package_name}}",
+    display_name="<<display name of your app here>>",
+    version="1.0.0",
+    license="<<insert here>>",
+    author="<<your name here>>",
+    author_email="you@example.com",
+    url="<<your company url>>",
+    description="CP4S Connector for '{{package_name}}'",
+    long_description="""CP4S Connector Components for '{{package_name}}'""",
+    install_requires=[
+        
+    ],
+    packages=find_packages(),
+    include_package_data=True,
+    platforms="any",
+    classifiers=[
+        "Programming Language :: Python",
+    ]
+)
