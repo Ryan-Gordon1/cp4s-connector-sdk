@@ -16,8 +16,7 @@ with io.open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="cp4s-connector-sdk",
-    use_scm_version={"root": "../", "relative_to": __file__},
-    setup_requires=['setuptools_scm'],
+    version="0.0.1",
     license="MIT",
     packages=find_packages(),
 
