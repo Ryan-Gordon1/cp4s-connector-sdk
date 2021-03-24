@@ -1,21 +1,25 @@
 ![IBM Security](./assets/IBM_Security_lockup_pos_RGB.png)
 # cp4s-connector-sdk
-
+The Cloud Pak for Security (CP4S) SDK is a tool provided as a part of the integration ecosystem to streamline the creation of new Connectors for either the CAR or UDI services.
 
 ## Use Cases 
 
-Generating Connectors:
-Cloud Pak for Security exposes connectors as a new mechanism or point of intergration for the platform. Alongside SOAR Functions, Playbooks and QRadar Apps; the CAR framework compliments the integration framework and 
-this connector SDK aims to simplify the developer experience of working with Connectors.
+### Generating Connectors:
+Cloud Pak for Security exposes connectors as a new mechanism or point of intergration for the platform. Alongside SOAR Functions, Playbooks and QRadar Apps; the CAR framework compliments the integration framework and this connector SDK aims to simplify the developer experience of working with Connectors.
 
 Codegeneration is a powerful tool in a new ecosystem not only for helping to cultivate best practices among the community but also to help decrease the time to response for our users working with these tools.
-Customers have to work with many many tools and ideally want to learn aas little as possible about another tool. 
+Customers have to work with many many tools and ideally want to learn as little as possible about another tool. 
 
-For this reason we provided a best practice package someone can take and simply extend without worrying. We called this the car-reference-connector(link) and distributed it over github. The generated connector packages from this tool are based on the reference package and provide a way for a developer to streamline the bootstrapping process of getting a new connector working. 
+For this reason we provided a best practice package someone can take and simply extend without worrying. We called this the [car-reference-connector](https://github.com/IBM/cp4s-car-reference-connector) and distributed it over github. The generated connector packages from this tool are based on the reference package and provide a way for a developer to streamline the bootstrapping process of getting a new connector working. 
 
 ## Installation 
 
-### TBD - get it via Pypi : 
+### Get from pypi Pypi : 
+The package is currently available on the test pypi in order to preserve the namespace for IBM on the main pypi repo
+To install this from the test pypi :
+```bash
+pip install -i https://test.pypi.org/simple/ cp4s-connector-sdk==0.0.1
+```
 
 
 ### Install locally

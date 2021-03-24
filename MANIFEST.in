@@ -1,0 +1,8 @@
+include cp4s_connector_sdk/LICENSE
+# This will include any .jinja2 & .png files found anywhere
+# under data/ directory when packaging
+include assets/IBM_Security_lockup_pos_RGB.png
+recursive-include cp4s_connector_sdk/* *.py
+recursive-include cp4s_connector_sdk/templates/* *.jinja2
+recursive-include cp4s_connector_sdk/templates/* *.png
+include ./CHANGES
