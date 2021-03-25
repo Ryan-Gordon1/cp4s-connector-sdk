@@ -86,7 +86,7 @@ class ConnectorCodegenCmd(BaseCmd):
             jinja_env = Environment(
                 # Loads Jinja Templates in cp4s_connector_sdk/<<relative_path_to_templates>>
                 loader=PackageLoader("cp4s_connector_sdk", get_jinja_env_location(
-                    connecter_type=args.connectertype)),
+                    connecter_type=args.connectortype)),
                 trim_blocks=True,  # First newline after a block is removed
                 # Leading spaces and tabs are stripped from the start of a line to a block
                 lstrip_blocks=True,
@@ -128,3 +128,52 @@ class ConnectorCodegenCmd(BaseCmd):
                      ("Codegen run finished for ", package_name))
         else:
             self.parser.print_help()
+
+# TODO: could be moved to a separate file
+def get_jinja_env_location(connecter_type=DEFAULT_CONNECTOR):
+    """get_jinja_env_location returns a jinja
+    environment dependant on what the value of connecter_type is.
+    Each environment is a collection of jinja2 templates which 
+    together form a generatable connector package.
+    Current design means we can add any number of connecter package 
+    templayes and any number of connector types.
+    :param connecter_type: The type of connector to return an env for, defaults to DEFAULT_CONNECTOR
+    :type connecter_type: str, optional
+    :return: The location of the jinja env for the provided connector_type
+    :rtype: str
+    """
+    if connecter_type == "UDI":
+        return "templates/codegen/udi_connector"
+    return "templates/codegen/car_connector"
+
+
+def get_car_connector_mapping_dict(jinja_data):
+    """get_car_connector_mapping_dict returns 
+    a mapping dict which maps resultant filenames
+    to their appropriate jinja template.
+    :param jinja_data: The jinja data which will be used to fill in each template in the mapping dict
+    :type jinja_data: dict
+    :return: The mapping dict
+    :rtype: dict
+    """
+    return {
+        "app.py": ("app.py.jinja2", jinja_data),
+        "README.md": ("README.md.jinja2", jinja_data),
+        "setup.py": ("setup.py.jinja2", jinja_data),
+        "Dockerfile": ("Dockerfile.jinja2", jinja_data),
+        "configurations": {
+            "config.json": ("configurations/config.json.jinja2", jinja_data),
+            "lang.json": ("configurations/lang.json.jinja2", jinja_data)
+        },
+        jinja_data['package_name']: {
+            "__init__.py": ("connector/__init__.py.jinja2", jinja_data),
+            "full_import.py": ("connector/full_import.py.jinja2", jinja_data),
+            "data_handler.py": ("connector/data_handler.py.jinja2", jinja_data),
+            "inc_import.py": ("connector/inc_import.py.jinja2", jinja_data),
+            "requirements.txt": ("connector/requirements.txt.jinja2", jinja_data),
+            "server_access.py": ("connector/server_access.py.jinja2", jinja_data),
+        },
+        "server": {
+            # TODO:
+        }
+    }
