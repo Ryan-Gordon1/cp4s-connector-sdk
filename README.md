@@ -14,11 +14,15 @@ For this reason we provided a best practice package someone can take and simply 
 
 ## Installation 
 
-### Get from pypi Pypi : 
+### Get from Pypi : 
 The package is currently available on the test pypi in order to preserve the namespace for IBM on the main pypi repo
 To install this from the test pypi :
 ```bash
-pip install -i https://test.pypi.org/simple/ cp4s-connector-sdk==0.0.1
+pip install -i https://test.pypi.org/simple/ cp4s-connector-sdk
+```
+This SDK depends on other packages such as the resilient-sdk and resilient python api packages. If you encounter issues with these during installation, try to download them individually using pypi.
+```bash
+pip install resilient resilient-sdk
 ```
 
 
@@ -41,3 +45,8 @@ Coming soon -- generate boilerplates for any of the connectors
 ```
 connector-sdk codegen -p my_udi_connector --connectortype UDI
 ```
+
+### Authors
+The Cloud Pak for Security Connector SDK has been developed by IBM Security, with Ryan Gordon as the initial core author, along with many contributors.
+
+You can contact us by opening a new issue in the repository.

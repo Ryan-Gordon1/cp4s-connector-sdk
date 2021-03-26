@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# (c) Copyright Ryan Gordon. 2021. All Rights Reserved. MIT
 
 """ TODO: module docstring """
 
